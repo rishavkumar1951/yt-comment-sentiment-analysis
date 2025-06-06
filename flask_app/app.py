@@ -146,7 +146,9 @@ def predict_with_timestamps():
         return jsonify({"error": f"Prediction failed: {str(e)}"}), 500
     
     # Return the response with original comments, predicted sentiments, and timestamps
-    response = [{"comment": comment, "sentiment": sentiment, "timestamp": timestamp} for comment, sentiment, timestamp in zip(comments, predictions, timestamps)]
+    # response = [{"comment": comment, "sentiment": sentiment, "timestamp": timestamp} for comment, sentiment, timestamp in zip(comments, predictions, timestamps)]
+
+    response = [{"timestamp": timestamp,"sentiment": sentiment} for timestamp , sentiment in zip(timestamps, predictions)]
     return jsonify(response)
 
 @app.route('/predict', methods=['POST'])
