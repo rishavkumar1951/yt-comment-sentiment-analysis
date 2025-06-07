@@ -30,7 +30,7 @@
 # app.py
 
 import matplotlib
-matplotlib.use('Agg')  # Use non-interactive backend before importing pyplot
+matplotlib.use('Agg')  # Use non-interactive backend before importing pyplot 
 
 from flask import Flask, request, jsonify, send_file
 from flask_cors import CORS
